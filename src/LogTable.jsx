@@ -18,7 +18,7 @@ const LogTable = () => {
                 <tr key={log._id}>
                     <td>{log._id}</td>
                     <td>{log.expression}</td>
-                    <td>{log.is_valid ? 'Yes' : 'No'}</td>
+                    <td>{log.isvalid ? 'Yes' : 'No'}</td>
                     <td>{log.output}</td>
                     <td>{new Date(log.created_on).toLocaleString()}</td>
                 </tr>
