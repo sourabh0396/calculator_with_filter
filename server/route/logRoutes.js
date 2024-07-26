@@ -19,15 +19,12 @@ const handleDbOperation = (operation) => async (req, res, next) => {
 // POST /api/logs - Log a new calculator expression
 router.post('/logs', handleDbOperation(async (req, res) => {
   const { expression } = req.body;
-
   if (!expression) {
     logger.info('Received an empty expression');
     return res.status(400).json({ message: 'Expression is empty' });
   }
-
   let output = null;
   let isValid = true;
-
   try {
     output = math.evaluate(expression);
     output = parseFloat(output.toFixed(2)); // Format to 2 decimal places
@@ -35,9 +32,8 @@ router.post('/logs', handleDbOperation(async (req, res) => {
   } catch (err) {
     logger.warn(`Invalid expression attempted: ${expression}`);
   }
-
+  
   const calculatorLog = new CalculatorLog({ expression, isValid, output });
-
   await calculatorLog.save();
   logger.info(`Expression logged: ${expression} | Valid: ${isValid}`);
 
@@ -48,7 +44,7 @@ router.post('/logs', handleDbOperation(async (req, res) => {
   });
 }));
 
-// GET /api/logs - Retrieve the latest 10 calculator logs
+// latest 10 calculator logs
 router.get('/logs', handleDbOperation(async (req, res) => {
   const logs = await CalculatorLog.find().sort({ createdOn: -1 }).limit(10).exec();
   logger.info('Successfully retrieved logs');

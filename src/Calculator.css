@@ -49,23 +49,24 @@ button{
 
 #table{
     max-width: 800px;
-  }
-  
-  table{
+  }  
+table{
     width: 100%;
     border-collapse: collapse;
     color: black;
     font-size: 20px;
   }
-table th,
 table td {
+  border: 2px solid #241d1d94;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgb(34, 32, 32);
+}
+table th {
   border: 2px solid #3b393994;
   padding: 10px;
   text-align: center;
-}
-table th {
-    background-color: #0c0e0c44;
-    color: white;
-    font-weight: bold;
-    
+  background-color: #0c0e0c44;
+  color: white;
+  font-weight: bold;  
   }

@@ -6,20 +6,16 @@ const logger = require('./config/logger');
 const logRoutes = require('./route/logRoutes');
 
 const app = express();
-
-// Connect to MongoDB
 connectDB();
-// Middleware setup
 app.use(cors());
 app.use(express.json());
-// Route setup
 app.use('/api', logRoutes);
 
-// Root 
 app.get('/', (req, res) => {
   res.send('Hello from the Calculator Log API!');
   logger.info('Served root endpoint');
 });
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;

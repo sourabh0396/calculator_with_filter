@@ -18,7 +18,8 @@ const logger = winston.createLogger({
     // MongoDB transport
     new winston.transports.MongoDB({
       level: 'error',
-      db: 'mongodb://localhost:27017/logs',
+      // db: 'mongodb://localhost:27017/logs',
+      db: 'mongodb+srv://sourabhpatil0369:EbyytSSzFpPjxy9v@cluster0.h6lnfl5.mongodb.net/',
       options: {
         useUnifiedTopology: true
       },

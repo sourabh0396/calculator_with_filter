@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Calculator.css'; // Import CSS for styling
+import './Calculator.css';
 
 const Calculator = () => {
   const [input, setInput] = useState('');
@@ -21,27 +21,23 @@ const Calculator = () => {
     }
   };
 
-  // Evaluate the expression and store the log
+  // Evaluate expression and store log
   const evaluateExpression = async () => {
     try {
       const res = eval(input); // Evaluate expression
       setResult(res);
-
-    const isValid = !isNaN(res);// Check if the expression is valid
-      // Send calculation log to the server
+      const isValid = !isNaN(res);
       await axios.post('http://localhost:5000/api/logs', {
         expression: input,
         isValid: true,
         output: res
       });
 
-      fetchLogs(); // Refresh logs after successful evaluation
+      fetchLogs();
     } catch (error) {
       setResult('Error');
     }
   };
-
-  // Fetch logs from the backend
   const fetchLogs = async () => {
     try {
       const res = await axios.get('http://localhost:5000/api/logs');
@@ -50,7 +46,6 @@ const Calculator = () => {
       console.error('Error fetching logs:', error);
     }
   };
-
   // Initial fetch of logs when the component mounts
   useEffect(() => {
     fetchLogs();
@@ -110,12 +105,11 @@ const Calculator = () => {
           <tbody>
             {logs.map(log => (
               <tr key={log._id}>
-                <td>{log.Id}</td>
+                <td>{log._id}</td>
                 <td>{log.expression}</td>
                 <td>{log.isValid ? 'Yes' : 'No'}</td>
                 <td>{log.output}</td>
-                {/* <td>{new Date(log.created_on).toLocaleDateString()}</td> */}
-                <td>{new Date(log.created_on).toLocaleDateString('en-US', { dateStyle: 'medium', timeStyle: 'medium' })}</td> {/* Correct formatting */}
+                <td>{new Date(log.createdOn).toLocaleString()}</td>
               </tr>
             ))}
           </tbody>

@@ -16,7 +16,7 @@ const LogTable = () => {
             <tbody>
                 {logs.map(log => (
                 <tr key={log._id}>
-                    <td>{log._id}</td>
+                    <td>{log.ID}</td>
                     <td>{log.expression}</td>
                     <td>{log.isvalid ? 'Yes' : 'No'}</td>
                     <td>{log.output}</td>
