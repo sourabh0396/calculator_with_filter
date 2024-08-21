@@ -1,4 +1,11 @@
-#root {
+.app-main{
+  margin: 30px;
+  /* background: linear-gradient(rgba(255,255,255,0.5), rgba(255, 255, 255, 0.192)),url(../public/calculator.jpg); */
+  /* padding: 5px; */
+  /* border-radius: 20px; */
+}
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +46,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

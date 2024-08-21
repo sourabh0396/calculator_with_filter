@@ -1,16 +1,17 @@
 .calculator{
-    padding: 20px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     background-color: rgba(0, 0, 0, 0.678);
-    width: 350px;
+    width: 330px;
+    height: 550px;
 }
 #main{
     display: grid;
-    grid-template-columns: 6fr 6fr;
+    grid-template-columns: 4fr 5fr;
     justify-content: space-around;
-    gap: 60px;
+    gap: 20px;
 }
 #resultBox{
     text-align: right;
@@ -19,7 +20,7 @@
     margin: 10px;
     margin-right: 50px;
 }
-input{
+.input{
     padding: 20px;
     margin: 5px;
     border-radius: 5px;
@@ -29,9 +30,19 @@ input{
     font-size: 20px;
     text-align: right;
     color: white;
-    background-color: rgba(0, 0, 0, 0.459);
+    background-color: #1c83777e;
+    /* background-color: rgba(0, 0, 0, 0.459); */
 }
-button{
+
+.delete-button{
+  background-color: rgba(250, 123, 4, 0.911); 
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+}
+.btnnumber{
     height: 60px;
     width: 60px;
     border-radius: 50%;
@@ -46,27 +57,84 @@ button{
 }
 
 
-
-#table{
-    max-width: 800px;
-  }  
 table{
-    width: 100%;
     border-collapse: collapse;
-    color: black;
-    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
   }
-table td {
-  border: 2px solid #241d1d94;
-  padding: 10px;
+table td{
+  border: 1px solid #241d1d94;
   text-align: center;
   border: 1px solid rgb(34, 32, 32);
 }
 table th {
   border: 2px solid #3b393994;
-  padding: 10px;
+  /* padding: 2px; */
   text-align: center;
-  background-color: #0c0e0c44;
+  background-color: #1c83777e;
+  /* background-color: #0c0e0c44; */
   color: white;
-  font-weight: bold;  
+  font-weight: bold;
   }
+  table th input{
+    width: auto;
+    text-align: center;
+    padding: 2px;
+    border-radius: 10px;
+    }
+  thead{
+    color:white;
+    background:#070f0e;
+  }
+  tbody{
+    border-radius: 15px;
+  }
+
+th,td{
+  text-align:center;
+  padding:5px 0;
+}
+
+tbody tr:nth-child(even){
+  background:#ECF0F1;
+}
+
+tbody tr:hover{
+background:#BDC3C7;
+  color:#FFFFFF;
+}
+
+
+
+.pagination{
+  margin-top: 20px;
+  align-content: center;
+}
+
+.pagination button {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.pagination button:hover {
+  background-color: #bbff00;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  font-weight: bold;
+  padding: 15px;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+}
